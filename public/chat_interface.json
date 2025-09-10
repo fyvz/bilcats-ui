@@ -1,0 +1,93 @@
+{
+  "conversations":[
+	{
+		"id": 1,
+		"name": "Main"
+	},
+	{
+	    "id":2,
+		"name": "Coffee Break ☕"
+	},
+    {
+        "id":3,
+        "name": "Announcements"
+    }
+	],
+  "messages": [
+    {
+        "id":1,
+        "conversationId": 1,
+        "content":"Hello guys. Happy to be here!",
+        "userId": 1,
+        "createdAt": "2025-08-16T15:23:00+03:00",
+        "interactions" : [ {"userId": 2, "interaction": "Like"}] 
+    },
+    {
+        "id":2,
+        "conversationId": 2,
+        "content":"Hey anybody free after 2PM? We wanted to hang out at the Starbuck's at G",
+        "userId": 3,
+        "createdAt": "2025-08-16T15:25:00+03:00",
+        "interactions" : [] 
+    },     
+    {
+        "id":3,
+        "conversationId": 1,
+        "content":"Hey! Glad to have you here!",
+        "userId": 2,
+        "createdAt": "2025-08-16T15:27:00+03:00",
+        "interactions" : []
+    },   
+    {
+        "id":4,
+        "conversationId": 1,
+        "content":"So you guys know we found someone to adopt Firuzan?",
+        "userId": 1,
+        "createdAt": "2025-08-16T15:29:00+03:00",
+        "interactions" : []
+    },     
+    {
+        "id":5,
+        "conversationId": 2,
+        "content":"Yeah sure! Can I bring a few friends too?",
+        "userId": 4,
+        "createdAt": "2025-08-16T15:30:00+03:00",
+        "interactions" : [] 
+    },     
+    {
+        "id":6,
+        "conversationId": 3,
+        "content":"We are looking for volunteers for moderation duty. DMs open!",
+        "userId": 5,
+        "createdAt": "2025-08-16T15:32:00+03:00",
+        "interactions" : []
+    } 
+  ],
+  "users":[
+   {
+      "id": 1,
+      "userName": "Kübra",
+      "profilePic": "some url"
+    },
+    {
+      "id": 2,
+      "userName": "Aytekin",
+      "profilePic": "some url"
+    },
+    {
+      "id": 3,
+      "userName": "Fatih",
+      "profilePic": "some url"
+    },
+        {
+      "id": 4,
+      "userName": "İzgi",
+      "profilePic": "some url"
+    },
+    {
+      "id": 5,
+      "userName": "Admin",
+      "profilePic": "some url"
+    }
+  ]
+} 

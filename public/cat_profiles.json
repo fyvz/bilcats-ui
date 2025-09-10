@@ -1,0 +1,82 @@
+{
+  "cats": [
+    {
+      "id": 1,
+      "slug": "cevher-pasa",
+      "name": "Cevher Paşa",
+      "desc": "Truly a noble cat!",
+      "stats": {
+        "age": "4 years",
+        "type": "Turkish Van",
+        "health_issues": "None",
+        "frequents": "EEE courtyard",
+        "friendliness": "Very friendly"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "kofte",
+      "name": "Köfte",
+      "desc": "Named after her favorite food",
+      "stats": {
+        "age": "2 years",
+        "type": "Tabby",
+        "health_issues": "Seasonal allergies",
+        "frequents": "Cafeteria entrance",
+        "friendliness": "Shy with strangers, cuddly with friends"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "damat",
+      "name": "Damat",
+      "desc": "The gentleman of Bilkent",
+      "stats": {
+        "age": "5 years",
+        "type": "British Shorthair",
+        "health_issues": "Mild arthritis",
+        "frequents": "Library garden",
+        "friendliness": "Polite and gentle"
+      }
+    },
+    {
+      "id": 4,
+      "slug": "latte",
+      "name": "Latte",
+      "desc": "Fluffiest Latte you've ever seen.",
+      "stats": {
+        "age": "3 years",
+        "type": "Persian Mix",
+        "health_issues": "Occasional eye discharge",
+        "frequents": "Campus café",
+        "friendliness": "Loves head scratches"
+      }
+    },
+    {
+      "id": 5,
+      "slug": "sultan",
+      "name": "Sultan",
+      "desc": "EEE-dwelling princess with a sweet meow but sharp claws!",
+      "stats": {
+        "age": "6 years",
+        "type": "Calico",
+        "health_issues": "None",
+        "frequents": "EEE building rooftop",
+        "friendliness": "Selective but loyal"
+      }
+    },
+    {
+      "id": 6,
+      "slug": "firuzan",
+      "name": "Firuzan",
+      "desc": "Likes to sleep a lot!",
+      "stats": {
+        "age": "7 years",
+        "type": "Siamese Mix",
+        "health_issues": "Chronic laziness (self-diagnosed)",
+        "frequents": "Sunny bench near the fountain",
+        "friendliness": "Friendly if not napping"
+      }
+    }
+  ]
+}
