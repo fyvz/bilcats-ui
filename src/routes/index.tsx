@@ -1,10 +1,13 @@
+import HomePageHero from '@/components/HomePageHero';
+import HowItWorks from '@/components/HowItWorks';
+import SayHello from '@/components/SayHello';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 
 
 
 
-const catloaderQueryOptions = () => queryOptions({
+const catLoaderQueryOptions = () => queryOptions({
   queryKey: ['catloader'],
   queryFn: async () => {
     const res = await fetch("/cat_profiles.json");
@@ -16,17 +19,21 @@ const catloaderQueryOptions = () => queryOptions({
 
 
 export const Route = createFileRoute('/')({
-  loader: ({context:{queryClient}}) => queryClient.ensureQueryData(catloaderQueryOptions()),
-  component: App,
+  loader: ({context:{queryClient}}) => queryClient.ensureQueryData(catLoaderQueryOptions()),
+  component: HomePage,
 })
 
-function App() {
-  
-  const { data } = useSuspenseQuery(catloaderQueryOptions())
+function HomePage() {
+
+  const { data } = useSuspenseQuery(catLoaderQueryOptions())
   console.log(data);
   return (
   <>
-  My App
+    <HomePageHero /> 
+    {/* Say Hello To style={{ backgroundImage: `url(${HeroBg})` }}*/}
+    <SayHello selectedCats={data.cats} />
+    {/* How it Works */}
+    <HowItWorks />
   </>
   )
 }

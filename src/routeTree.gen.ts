@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as pagesRouteRouteImport } from './routes/(pages)/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CatsIndexRouteImport } from './routes/cats/index'
+import { Route as CatsCatNameSlugRouteRouteImport } from './routes/cats/$catNameSlug/route'
+import { Route as CatsCatNameSlugIndexRouteImport } from './routes/cats/$catNameSlug/index'
 import { Route as pagesChatIndexRouteImport } from './routes/(pages)/chat/index'
 
 const pagesRouteRoute = pagesRouteRouteImport.update({
@@ -22,6 +25,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CatsIndexRoute = CatsIndexRouteImport.update({
+  id: '/cats/',
+  path: '/cats/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatsCatNameSlugRouteRoute = CatsCatNameSlugRouteRouteImport.update({
+  id: '/cats/$catNameSlug',
+  path: '/cats/$catNameSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatsCatNameSlugIndexRoute = CatsCatNameSlugIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CatsCatNameSlugRouteRoute,
+} as any)
 const pagesChatIndexRoute = pagesChatIndexRouteImport.update({
   id: '/chat/',
   path: '/chat/',
@@ -30,29 +48,51 @@ const pagesChatIndexRoute = pagesChatIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof pagesRouteRouteWithChildren
+  '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/cats': typeof CatsIndexRoute
   '/chat': typeof pagesChatIndexRoute
+  '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof pagesRouteRouteWithChildren
+  '/cats': typeof CatsIndexRoute
   '/chat': typeof pagesChatIndexRoute
+  '/cats/$catNameSlug': typeof CatsCatNameSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/(pages)': typeof pagesRouteRouteWithChildren
+  '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/cats/': typeof CatsIndexRoute
   '/(pages)/chat/': typeof pagesChatIndexRoute
+  '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat'
+  fullPaths:
+    | '/'
+    | '/cats/$catNameSlug'
+    | '/cats'
+    | '/chat'
+    | '/cats/$catNameSlug/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat'
-  id: '__root__' | '/' | '/(pages)' | '/(pages)/chat/'
+  to: '/' | '/cats' | '/chat' | '/cats/$catNameSlug'
+  id:
+    | '__root__'
+    | '/'
+    | '/(pages)'
+    | '/cats/$catNameSlug'
+    | '/cats/'
+    | '/(pages)/chat/'
+    | '/cats/$catNameSlug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   pagesRouteRoute: typeof pagesRouteRouteWithChildren
+  CatsCatNameSlugRouteRoute: typeof CatsCatNameSlugRouteRouteWithChildren
+  CatsIndexRoute: typeof CatsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -70,6 +110,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/cats/': {
+      id: '/cats/'
+      path: '/cats'
+      fullPath: '/cats'
+      preLoaderRoute: typeof CatsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cats/$catNameSlug': {
+      id: '/cats/$catNameSlug'
+      path: '/cats/$catNameSlug'
+      fullPath: '/cats/$catNameSlug'
+      preLoaderRoute: typeof CatsCatNameSlugRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cats/$catNameSlug/': {
+      id: '/cats/$catNameSlug/'
+      path: '/'
+      fullPath: '/cats/$catNameSlug/'
+      preLoaderRoute: typeof CatsCatNameSlugIndexRouteImport
+      parentRoute: typeof CatsCatNameSlugRouteRoute
     }
     '/(pages)/chat/': {
       id: '/(pages)/chat/'
@@ -93,9 +154,22 @@ const pagesRouteRouteWithChildren = pagesRouteRoute._addFileChildren(
   pagesRouteRouteChildren,
 )
 
+interface CatsCatNameSlugRouteRouteChildren {
+  CatsCatNameSlugIndexRoute: typeof CatsCatNameSlugIndexRoute
+}
+
+const CatsCatNameSlugRouteRouteChildren: CatsCatNameSlugRouteRouteChildren = {
+  CatsCatNameSlugIndexRoute: CatsCatNameSlugIndexRoute,
+}
+
+const CatsCatNameSlugRouteRouteWithChildren =
+  CatsCatNameSlugRouteRoute._addFileChildren(CatsCatNameSlugRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   pagesRouteRoute: pagesRouteRouteWithChildren,
+  CatsCatNameSlugRouteRoute: CatsCatNameSlugRouteRouteWithChildren,
+  CatsIndexRoute: CatsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

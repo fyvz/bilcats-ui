@@ -1,9 +1,9 @@
 
 import { Link } from "@tanstack/react-router";
-import HeroBg from "~/assets/hero_bg.jpg";
-import HeroImg from "~/assets/hero_image.png";
+
 const HomePageHero = () => {
-    
+    const HeroBg = "/assets/hero_bg.jpg";
+    const HeroImg = "/assets/hero_image.png";
     return ( 
     <div
     className="h-auto bg-cover bg-center p-6 py-6 md:py-2 space-y-4 md:space-y-0 flex flex-col justify-center items-center md:space-x-20 md:flex-row md:h-100"

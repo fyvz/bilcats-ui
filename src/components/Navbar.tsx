@@ -71,7 +71,7 @@ const Navbar = () => {
                      hover:text-blue-400 hover:border-b-blue-400 duration-100 ease-in">
                         <IoChatboxOutline/> <span>Chat</span>
                     </Link>
-                    <Link to="/cat" title="The BilCats" className="flex items-center space-x-2 border-b border-b-transparent
+                    <Link to="/cats" title="The BilCats" className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-amber-400 hover:border-b-amber-400 duration-100 ease-in">
                         <PiCat/> <span>Cat</span>
                     </Link>
@@ -109,7 +109,7 @@ const Navbar = () => {
                         <Link to="/chat" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-blue-400">
                             <IoChatboxOutline/> <span>Chat</span>
                         </Link>
-                        <Link to="/cat" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-amber-400">
+                        <Link to="/cats" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-amber-400">
                             <PiCat/> <span>Cat</span>
                         </Link>
                         <Link to="/login/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-red-400">

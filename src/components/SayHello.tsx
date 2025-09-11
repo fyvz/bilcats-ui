@@ -22,7 +22,7 @@ const SayHello = ({selectedCats}:{selectedCats:Cat[]}) => {
                 Bilkent is the home of many wonderful cats. Meet our furry friends!
             </p>
             <div className="flex justify-center">
-                <Link to="/cat" className="bg-blue-400 text-white hover:bg-blue-500 shadow-md hover:shadow-xl py-2 px-5 rounded text-xl">View Cat Book → </Link>
+                <Link to="/cats" className="bg-blue-400 text-white hover:bg-blue-500 shadow-md hover:shadow-xl py-2 px-5 rounded text-xl">View Cat Book → </Link>
             </div>
         </div>
         
