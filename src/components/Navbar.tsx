@@ -8,14 +8,14 @@ import { FaRegUser } from "react-icons/fa";
 // import { useGlobal } from "../context/GlobalContext";
 import { FaBars } from "react-icons/fa6";
 import { Link } from "@tanstack/react-router";
-
+import { useUser } from "@/context/UserContext";
+import NavbarUserDropDown from "./NavbarUserPopover";
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 
 const Navbar = () => {
     
     // const {user} = useGlobal();
-    const user = {
-        loggedIn: false
-    }
+
 
 
     const [isScrolling, setIsScrolling] = useState(false)
@@ -45,7 +45,8 @@ const Navbar = () => {
         };
     }, []);
 
-
+    const {user} = useUser()
+    
 
     return ( 
 
@@ -57,25 +58,36 @@ const Navbar = () => {
             {/* Navbar Container */}
             <div className="flex justify-around sm:justify-between items-center max-w-[1200px] mx-auto w-full ">
                 {/* Logo Container */}
-                <Link to="/">
+                <Link to="/" >
                 <img src="/assets/logo-main.png" alt="BilCats" title="BilCats Home" className="h-10 sm:h-14 md:h-16 object-cover"/>
                 </Link>
                 {/* Menu Container */}
                 {/* TODO: Add dropdown menus here*/}
                 <div className="hidden sm:flex  space-x-4 md:space-x-8 h-10 text-sm sm:text-base"> {/* text-sm is a placeholder. Replace the menu with mobile toggle for very small screens*/}
                     <Link to="/" title="Home" className="flex items-center space-x-2 border-b border-b-transparent
-                     hover:text-green-400 hover:border-b-green-400 duration-100 ease-in">
+                     hover:text-green-400 hover:border-b-green-400 duration-100 ease-in"   
+                     activeProps={{
+                    className: "text-green-400 ",
+                    }}>
                         <AiOutlineHome/> <span>Home</span>
                     </Link>
+                    <NavbarUserDropDown />
                     <Link to="/chat" title="Chat" className="flex items-center space-x-2 border-b border-b-transparent
-                     hover:text-blue-400 hover:border-b-blue-400 duration-100 ease-in">
+                     hover:text-blue-400 hover:border-b-blue-400 duration-100 ease-in"
+                    activeProps={{
+                    className: "text-blue-400 ",
+                    }}>
                         <IoChatboxOutline/> <span>Chat</span>
                     </Link>
                     <Link to="/cats" title="The BilCats" className="flex items-center space-x-2 border-b border-b-transparent
-                     hover:text-amber-400 hover:border-b-amber-400 duration-100 ease-in">
+                     hover:text-amber-400 hover:border-b-amber-400 duration-100 ease-in"         
+                    activeProps={{
+                    className: "text-amber-400 ",
+                    }} >
                         <PiCat/> <span>Cat</span>
                     </Link>
-                    {!user ? (
+
+                    {/* {!user ? (
                     <Link to="/login/" title={"Sign In"} className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-indigo-400 hover:border-b-indigo-400 duration-100 ease-in">
                         <FaRegUser/> <span>Sign In</span>
@@ -85,8 +97,9 @@ const Navbar = () => {
                      hover:text-indigo-400 hover:border-b-indigo-400 duration-100 ease-in">
                         <FaRegUser/> <span>Sign Out</span>
                     </Link>
+                    
                     )}
-  
+   */}
                 </div>
                 <button 
                     className="block sm:hidden hover:text-blue-400 duration-100 ease-in cursor-pointer"

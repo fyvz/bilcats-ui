@@ -9,6 +9,7 @@ import { routeTree } from './routeTree.gen'
 
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
+import { UserProvider } from './context/UserContext.tsx'
 
 
 // Set up tanstack query
@@ -44,12 +45,15 @@ declare module '@tanstack/react-router' {
 const rootElement = document.getElementById('app')
 if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
+
   root.render(
-    <QueryClientProvider client={queryClient}>
-      <StrictMode>
-        <RouterProvider router={router} />
-      </StrictMode>
-    </QueryClientProvider>
+    <UserProvider>
+      <QueryClientProvider client={queryClient}>
+        <StrictMode>
+          <RouterProvider router={router} />
+        </StrictMode>
+      </QueryClientProvider>
+    </UserProvider>
   )
 }
 

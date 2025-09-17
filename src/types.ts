@@ -15,8 +15,9 @@ export type User = {
 };
 
 export type Conversation = {
-  id: string;
-  name: string;
+  _id: string;
+  title: string;
+  slug: string;
 }
 
 export type ChatInteraction = {
@@ -26,11 +27,9 @@ export type ChatInteraction = {
 
 
 export type ChatMessage = {
-  id: number;
-  conversationId: number;
-  initialVersion?: string;
+  _id: string;
   content: string;
-  userId: number;
+  user: UserInfo;
   createdAt: string; // ISO string
   updatedAt?: string | null;
   deletedAt?: string | null;
@@ -48,7 +47,7 @@ export type MessageRender = {
 }
 
 export type UserInfo = {
-    id: number;  
-    userName: string;
+    _id: string;  
+    username: string;
     profilePic?: string;
 }
