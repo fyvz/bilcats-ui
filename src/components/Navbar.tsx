@@ -10,7 +10,7 @@ import { FaBars } from "react-icons/fa6";
 import { Link } from "@tanstack/react-router";
 import { useUser } from "@/context/UserContext";
 import NavbarUserDropDown from "./NavbarUserPopover";
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+
 
 const Navbar = () => {
     
@@ -125,9 +125,9 @@ const Navbar = () => {
                         <Link to="/cats" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-amber-400">
                             <PiCat/> <span>Cat</span>
                         </Link>
-                        <Link to="/login/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-red-400">
+                        {/* <Link to="/login/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2 py-2 hover:text-red-400">
                             <FaRegUser/> <span>{user?.loggedIn ? `${user?.userName}` : "Sign In"}</span>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

@@ -36,12 +36,12 @@ const Footer = () => {
                         <Link to="/chat" className="flex items-center space-x-2 py-2 hover:text-blue-400">
                             <IoChatboxOutline/> <span>Chat</span>
                         </Link>
-                        <Link to="/cat" className="flex items-center space-x-2 py-2 hover:text-amber-400">
+                        <Link to="/cats" className="flex items-center space-x-2 py-2 hover:text-amber-400">
                             <PiCat/> <span>Cat</span>
                         </Link>
-                        <Link to="/user/" className="flex items-center space-x-2 py-2 hover:text-red-400">
+                        {/* <Link to="/user/" className="flex items-center space-x-2 py-2 hover:text-red-400">
                             <FaRegUser/> <span>{user.loggedIn ? `${user.userName}` : "Sign In"}</span>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

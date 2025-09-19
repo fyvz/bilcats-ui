@@ -51,3 +51,17 @@ export type UserInfo = {
     username: string;
     profilePic?: string;
 }
+
+
+export type RegisterType = {
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
+
+export type LoginType = {
+  email: string;
+  password: string;
+}
