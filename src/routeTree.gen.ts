@@ -9,10 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as CatmapRouteRouteImport } from './routes/catmap/route'
 import { Route as pagesRouteRouteImport } from './routes/(pages)/route'
 import { Route as authRouteRouteImport } from './routes/(auth)/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatsIndexRouteImport } from './routes/cats/index'
+import { Route as ProfileUserSlugRouteRouteImport } from './routes/profile/$userSlug/route'
 import { Route as CatsCatNameSlugRouteRouteImport } from './routes/cats/$catNameSlug/route'
 import { Route as pagesChatRouteRouteImport } from './routes/(pages)/chat/route'
 import { Route as CatsCatNameSlugIndexRouteImport } from './routes/cats/$catNameSlug/index'
@@ -21,6 +23,11 @@ import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
 import { Route as pagesChatChatPageIndexRouteImport } from './routes/(pages)/chat/$chatPage/index'
 
+const CatmapRouteRoute = CatmapRouteRouteImport.update({
+  id: '/catmap',
+  path: '/catmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const pagesRouteRoute = pagesRouteRouteImport.update({
   id: '/(pages)',
   getParentRoute: () => rootRouteImport,
@@ -37,6 +44,11 @@ const IndexRoute = IndexRouteImport.update({
 const CatsIndexRoute = CatsIndexRouteImport.update({
   id: '/cats/',
   path: '/cats/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileUserSlugRouteRoute = ProfileUserSlugRouteRouteImport.update({
+  id: '/profile/$userSlug',
+  path: '/profile/$userSlug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CatsCatNameSlugRouteRoute = CatsCatNameSlugRouteRouteImport.update({
@@ -77,8 +89,10 @@ const pagesChatChatPageIndexRoute = pagesChatChatPageIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof pagesRouteRouteWithChildren
+  '/catmap': typeof CatmapRouteRoute
   '/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/profile/$userSlug': typeof ProfileUserSlugRouteRoute
   '/cats': typeof CatsIndexRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
@@ -88,6 +102,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof pagesRouteRouteWithChildren
+  '/catmap': typeof CatmapRouteRoute
+  '/profile/$userSlug': typeof ProfileUserSlugRouteRoute
   '/cats': typeof CatsIndexRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
@@ -100,8 +116,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/(auth)': typeof authRouteRouteWithChildren
   '/(pages)': typeof pagesRouteRouteWithChildren
+  '/catmap': typeof CatmapRouteRoute
   '/(pages)/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/profile/$userSlug': typeof ProfileUserSlugRouteRoute
   '/cats/': typeof CatsIndexRoute
   '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/register/': typeof authRegisterIndexRoute
@@ -113,8 +131,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/catmap'
     | '/chat'
     | '/cats/$catNameSlug'
+    | '/profile/$userSlug'
     | '/cats'
     | '/login'
     | '/register'
@@ -124,6 +144,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/catmap'
+    | '/profile/$userSlug'
     | '/cats'
     | '/login'
     | '/register'
@@ -135,8 +157,10 @@ export interface FileRouteTypes {
     | '/'
     | '/(auth)'
     | '/(pages)'
+    | '/catmap'
     | '/(pages)/chat'
     | '/cats/$catNameSlug'
+    | '/profile/$userSlug'
     | '/cats/'
     | '/(auth)/login/'
     | '/(auth)/register/'
@@ -149,12 +173,21 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   authRouteRoute: typeof authRouteRouteWithChildren
   pagesRouteRoute: typeof pagesRouteRouteWithChildren
+  CatmapRouteRoute: typeof CatmapRouteRoute
   CatsCatNameSlugRouteRoute: typeof CatsCatNameSlugRouteRouteWithChildren
+  ProfileUserSlugRouteRoute: typeof ProfileUserSlugRouteRoute
   CatsIndexRoute: typeof CatsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/catmap': {
+      id: '/catmap'
+      path: '/catmap'
+      fullPath: '/catmap'
+      preLoaderRoute: typeof CatmapRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(pages)': {
       id: '/(pages)'
       path: '/'
@@ -181,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/cats'
       fullPath: '/cats'
       preLoaderRoute: typeof CatsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/$userSlug': {
+      id: '/profile/$userSlug'
+      path: '/profile/$userSlug'
+      fullPath: '/profile/$userSlug'
+      preLoaderRoute: typeof ProfileUserSlugRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cats/$catNameSlug': {
@@ -290,7 +330,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   authRouteRoute: authRouteRouteWithChildren,
   pagesRouteRoute: pagesRouteRouteWithChildren,
+  CatmapRouteRoute: CatmapRouteRoute,
   CatsCatNameSlugRouteRoute: CatsCatNameSlugRouteRouteWithChildren,
+  ProfileUserSlugRouteRoute: ProfileUserSlugRouteRoute,
   CatsIndexRoute: CatsIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -72,6 +72,7 @@ const Navbar = () => {
                         <AiOutlineHome/> <span>Home</span>
                     </Link>
                     <NavbarUserDropDown />
+
                     <Link to="/chat" title="Chat" className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-blue-400 hover:border-b-blue-400 duration-100 ease-in"
                     activeProps={{
@@ -86,6 +87,19 @@ const Navbar = () => {
                     }} >
                         <PiCat/> <span>Cat</span>
                     </Link>
+                    <Link to ="/catmap" title="Cat Map" className="flex items-center space-x-2 border-b border-b-transparent hover:text-green-500 hover:border-b-green-500 duration-100 ease-in">
+                        <span>Cat Map</span>
+                    </Link>
+                    {/*user && (
+                        <Link
+                            to="/profile/$userSlug"
+                            params={{ userSlug: user.username.toLowerCase() }}
+                            title={user.username}
+                            className="flex items-center space-x-2 border-b border-b-transparent hover:text-indigo-400 hover:border-b-indigo-400 duration-100 ease-in"
+                        >
+                            <FaRegUser /> <span>{user.username}</span>
+                        </Link>
+                    )}
 
                     {/* {!user ? (
                     <Link to="/login/" title={"Sign In"} className="flex items-center space-x-2 border-b border-b-transparent
