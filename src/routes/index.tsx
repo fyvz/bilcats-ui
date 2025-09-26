@@ -1,6 +1,8 @@
 import HomePageHero from '@/components/HomePageHero';
 import HowItWorks from '@/components/HowItWorks';
 import SayHello from '@/components/SayHello';
+import AnouncementCard from '@/components/AnouncementCard';
+
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 
