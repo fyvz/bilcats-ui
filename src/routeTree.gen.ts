@@ -16,13 +16,12 @@ import { Route as CatsIndexRouteImport } from './routes/cats/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as CatsCatNameSlugRouteRouteImport } from './routes/cats/$catNameSlug/route'
 import { Route as pagesChatRouteRouteImport } from './routes/(pages)/chat/route'
-import { Route as pagesAnouncementsRouteRouteImport } from './routes/(pages)/anouncements/route'
 import { Route as CatsCatNameSlugIndexRouteImport } from './routes/cats/$catNameSlug/index'
-import { Route as AdminPostAnouncementIndexRouteImport } from './routes/admin/postAnouncement/index'
+import { Route as AdminPostAnouncementIndexRouteImport } from './routes/admin/post-anouncement/index'
 import { Route as pagesChatIndexRouteImport } from './routes/(pages)/chat/index'
 import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/index'
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
-import { Route as AdminPostAnouncementRouterRouteImport } from './routes/admin/postAnouncement/router'
+import { Route as AdminPostAnouncementRouterRouteImport } from './routes/admin/post-anouncement/router'
 import { Route as pagesChatChatPageIndexRouteImport } from './routes/(pages)/chat/$chatPage/index'
 
 const pagesRouteRoute = pagesRouteRouteImport.update({
@@ -58,11 +57,6 @@ const pagesChatRouteRoute = pagesChatRouteRouteImport.update({
   path: '/chat',
   getParentRoute: () => pagesRouteRoute,
 } as any)
-const pagesAnouncementsRouteRoute = pagesAnouncementsRouteRouteImport.update({
-  id: '/anouncements',
-  path: '/anouncements',
-  getParentRoute: () => pagesRouteRoute,
-} as any)
 const CatsCatNameSlugIndexRoute = CatsCatNameSlugIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -70,8 +64,8 @@ const CatsCatNameSlugIndexRoute = CatsCatNameSlugIndexRouteImport.update({
 } as any)
 const AdminPostAnouncementIndexRoute =
   AdminPostAnouncementIndexRouteImport.update({
-    id: '/admin/postAnouncement/',
-    path: '/admin/postAnouncement/',
+    id: '/admin/post-anouncement/',
+    path: '/admin/post-anouncement/',
     getParentRoute: () => rootRouteImport,
   } as any)
 const pagesChatIndexRoute = pagesChatIndexRouteImport.update({
@@ -91,8 +85,8 @@ const authLoginIndexRoute = authLoginIndexRouteImport.update({
 } as any)
 const AdminPostAnouncementRouterRoute =
   AdminPostAnouncementRouterRouteImport.update({
-    id: '/admin/postAnouncement/router',
-    path: '/admin/postAnouncement/router',
+    id: '/admin/post-anouncement/router',
+    path: '/admin/post-anouncement/router',
     getParentRoute: () => rootRouteImport,
   } as any)
 const pagesChatChatPageIndexRoute = pagesChatChatPageIndexRouteImport.update({
@@ -103,29 +97,27 @@ const pagesChatChatPageIndexRoute = pagesChatChatPageIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof pagesRouteRouteWithChildren
-  '/anouncements': typeof pagesAnouncementsRouteRoute
   '/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
   '/admin': typeof AdminIndexRoute
   '/cats': typeof CatsIndexRoute
-  '/admin/postAnouncement/router': typeof AdminPostAnouncementRouterRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/chat/': typeof pagesChatIndexRoute
-  '/admin/postAnouncement': typeof AdminPostAnouncementIndexRoute
+  '/admin/post-anouncement': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof pagesRouteRouteWithChildren
-  '/anouncements': typeof pagesAnouncementsRouteRoute
   '/admin': typeof AdminIndexRoute
   '/cats': typeof CatsIndexRoute
-  '/admin/postAnouncement/router': typeof AdminPostAnouncementRouterRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/chat': typeof pagesChatIndexRoute
-  '/admin/postAnouncement': typeof AdminPostAnouncementIndexRoute
+  '/admin/post-anouncement': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug': typeof CatsCatNameSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
 }
@@ -134,16 +126,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/(auth)': typeof authRouteRouteWithChildren
   '/(pages)': typeof pagesRouteRouteWithChildren
-  '/(pages)/anouncements': typeof pagesAnouncementsRouteRoute
   '/(pages)/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
   '/admin/': typeof AdminIndexRoute
   '/cats/': typeof CatsIndexRoute
-  '/admin/postAnouncement/router': typeof AdminPostAnouncementRouterRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/register/': typeof authRegisterIndexRoute
   '/(pages)/chat/': typeof pagesChatIndexRoute
-  '/admin/postAnouncement/': typeof AdminPostAnouncementIndexRoute
+  '/admin/post-anouncement/': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
   '/(pages)/chat/$chatPage/': typeof pagesChatChatPageIndexRoute
 }
@@ -151,29 +142,27 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/anouncements'
     | '/chat'
     | '/cats/$catNameSlug'
     | '/admin'
     | '/cats'
-    | '/admin/postAnouncement/router'
+    | '/admin/post-anouncement/router'
     | '/login'
     | '/register'
     | '/chat/'
-    | '/admin/postAnouncement'
+    | '/admin/post-anouncement'
     | '/cats/$catNameSlug/'
     | '/chat/$chatPage'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/anouncements'
     | '/admin'
     | '/cats'
-    | '/admin/postAnouncement/router'
+    | '/admin/post-anouncement/router'
     | '/login'
     | '/register'
     | '/chat'
-    | '/admin/postAnouncement'
+    | '/admin/post-anouncement'
     | '/cats/$catNameSlug'
     | '/chat/$chatPage'
   id:
@@ -181,16 +170,15 @@ export interface FileRouteTypes {
     | '/'
     | '/(auth)'
     | '/(pages)'
-    | '/(pages)/anouncements'
     | '/(pages)/chat'
     | '/cats/$catNameSlug'
     | '/admin/'
     | '/cats/'
-    | '/admin/postAnouncement/router'
+    | '/admin/post-anouncement/router'
     | '/(auth)/login/'
     | '/(auth)/register/'
     | '/(pages)/chat/'
-    | '/admin/postAnouncement/'
+    | '/admin/post-anouncement/'
     | '/cats/$catNameSlug/'
     | '/(pages)/chat/$chatPage/'
   fileRoutesById: FileRoutesById
@@ -257,13 +245,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof pagesChatRouteRouteImport
       parentRoute: typeof pagesRouteRoute
     }
-    '/(pages)/anouncements': {
-      id: '/(pages)/anouncements'
-      path: '/anouncements'
-      fullPath: '/anouncements'
-      preLoaderRoute: typeof pagesAnouncementsRouteRouteImport
-      parentRoute: typeof pagesRouteRoute
-    }
     '/cats/$catNameSlug/': {
       id: '/cats/$catNameSlug/'
       path: '/'
@@ -271,10 +252,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatsCatNameSlugIndexRouteImport
       parentRoute: typeof CatsCatNameSlugRouteRoute
     }
-    '/admin/postAnouncement/': {
-      id: '/admin/postAnouncement/'
-      path: '/admin/postAnouncement'
-      fullPath: '/admin/postAnouncement'
+    '/admin/post-anouncement/': {
+      id: '/admin/post-anouncement/'
+      path: '/admin/post-anouncement'
+      fullPath: '/admin/post-anouncement'
       preLoaderRoute: typeof AdminPostAnouncementIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -299,10 +280,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authLoginIndexRouteImport
       parentRoute: typeof authRouteRoute
     }
-    '/admin/postAnouncement/router': {
-      id: '/admin/postAnouncement/router'
-      path: '/admin/postAnouncement/router'
-      fullPath: '/admin/postAnouncement/router'
+    '/admin/post-anouncement/router': {
+      id: '/admin/post-anouncement/router'
+      path: '/admin/post-anouncement/router'
+      fullPath: '/admin/post-anouncement/router'
       preLoaderRoute: typeof AdminPostAnouncementRouterRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -345,12 +326,10 @@ const pagesChatRouteRouteWithChildren = pagesChatRouteRoute._addFileChildren(
 )
 
 interface pagesRouteRouteChildren {
-  pagesAnouncementsRouteRoute: typeof pagesAnouncementsRouteRoute
   pagesChatRouteRoute: typeof pagesChatRouteRouteWithChildren
 }
 
 const pagesRouteRouteChildren: pagesRouteRouteChildren = {
-  pagesAnouncementsRouteRoute: pagesAnouncementsRouteRoute,
   pagesChatRouteRoute: pagesChatRouteRouteWithChildren,
 }
 

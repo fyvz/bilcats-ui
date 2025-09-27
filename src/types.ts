@@ -73,7 +73,7 @@ export type Anouncement = {
     avatarUrl: string;
   }
   date: string;
-  cat: Cat;
+  cat: string;
   category: 'info' | 'emergency' | 'update' | 'event';
   title: string;
   content: string;
