@@ -65,3 +65,17 @@ export type LoginType = {
   email: string;
   password: string;
 }
+
+export type Anouncement = {
+  id: number;
+  author: {
+    name: string;
+    avatarUrl: string;
+  }
+  date: string;
+  cat: string;
+  category: 'info' | 'emergency' | 'update' | 'event';
+  title: string;
+  content: string;
+  following: number;
+}

@@ -1,3 +1,4 @@
+import AnouncementCard from '@/components/AnouncementCard'
 import Footer from '@/components/Footer'
 import { useUser } from '@/context/UserContext'
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
@@ -32,7 +33,6 @@ function PagesLayout() {
         <Outlet />
       </div>
      </main>
-
 
   </>
   )

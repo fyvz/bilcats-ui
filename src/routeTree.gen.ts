@@ -13,12 +13,15 @@ import { Route as pagesRouteRouteImport } from './routes/(pages)/route'
 import { Route as authRouteRouteImport } from './routes/(auth)/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatsIndexRouteImport } from './routes/cats/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as CatsCatNameSlugRouteRouteImport } from './routes/cats/$catNameSlug/route'
 import { Route as pagesChatRouteRouteImport } from './routes/(pages)/chat/route'
 import { Route as CatsCatNameSlugIndexRouteImport } from './routes/cats/$catNameSlug/index'
+import { Route as AdminPostAnouncementIndexRouteImport } from './routes/admin/post-anouncement/index'
 import { Route as pagesChatIndexRouteImport } from './routes/(pages)/chat/index'
 import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/index'
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
+import { Route as AdminPostAnouncementRouterRouteImport } from './routes/admin/post-anouncement/router'
 import { Route as pagesChatChatPageIndexRouteImport } from './routes/(pages)/chat/$chatPage/index'
 
 const pagesRouteRoute = pagesRouteRouteImport.update({
@@ -39,6 +42,11 @@ const CatsIndexRoute = CatsIndexRouteImport.update({
   path: '/cats/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatsCatNameSlugRouteRoute = CatsCatNameSlugRouteRouteImport.update({
   id: '/cats/$catNameSlug',
   path: '/cats/$catNameSlug',
@@ -54,6 +62,12 @@ const CatsCatNameSlugIndexRoute = CatsCatNameSlugIndexRouteImport.update({
   path: '/',
   getParentRoute: () => CatsCatNameSlugRouteRoute,
 } as any)
+const AdminPostAnouncementIndexRoute =
+  AdminPostAnouncementIndexRouteImport.update({
+    id: '/admin/post-anouncement/',
+    path: '/admin/post-anouncement/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const pagesChatIndexRoute = pagesChatIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -69,6 +83,12 @@ const authLoginIndexRoute = authLoginIndexRouteImport.update({
   path: '/login/',
   getParentRoute: () => authRouteRoute,
 } as any)
+const AdminPostAnouncementRouterRoute =
+  AdminPostAnouncementRouterRouteImport.update({
+    id: '/admin/post-anouncement/router',
+    path: '/admin/post-anouncement/router',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const pagesChatChatPageIndexRoute = pagesChatChatPageIndexRouteImport.update({
   id: '/$chatPage/',
   path: '/$chatPage/',
@@ -79,19 +99,25 @@ export interface FileRoutesByFullPath {
   '/': typeof pagesRouteRouteWithChildren
   '/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/admin': typeof AdminIndexRoute
   '/cats': typeof CatsIndexRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/chat/': typeof pagesChatIndexRoute
+  '/admin/post-anouncement': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof pagesRouteRouteWithChildren
+  '/admin': typeof AdminIndexRoute
   '/cats': typeof CatsIndexRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/login': typeof authLoginIndexRoute
   '/register': typeof authRegisterIndexRoute
   '/chat': typeof pagesChatIndexRoute
+  '/admin/post-anouncement': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug': typeof CatsCatNameSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
 }
@@ -102,10 +128,13 @@ export interface FileRoutesById {
   '/(pages)': typeof pagesRouteRouteWithChildren
   '/(pages)/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/admin/': typeof AdminIndexRoute
   '/cats/': typeof CatsIndexRoute
+  '/admin/post-anouncement/router': typeof AdminPostAnouncementRouterRoute
   '/(auth)/login/': typeof authLoginIndexRoute
   '/(auth)/register/': typeof authRegisterIndexRoute
   '/(pages)/chat/': typeof pagesChatIndexRoute
+  '/admin/post-anouncement/': typeof AdminPostAnouncementIndexRoute
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
   '/(pages)/chat/$chatPage/': typeof pagesChatChatPageIndexRoute
 }
@@ -115,19 +144,25 @@ export interface FileRouteTypes {
     | '/'
     | '/chat'
     | '/cats/$catNameSlug'
+    | '/admin'
     | '/cats'
+    | '/admin/post-anouncement/router'
     | '/login'
     | '/register'
     | '/chat/'
+    | '/admin/post-anouncement'
     | '/cats/$catNameSlug/'
     | '/chat/$chatPage'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/cats'
+    | '/admin/post-anouncement/router'
     | '/login'
     | '/register'
     | '/chat'
+    | '/admin/post-anouncement'
     | '/cats/$catNameSlug'
     | '/chat/$chatPage'
   id:
@@ -137,10 +172,13 @@ export interface FileRouteTypes {
     | '/(pages)'
     | '/(pages)/chat'
     | '/cats/$catNameSlug'
+    | '/admin/'
     | '/cats/'
+    | '/admin/post-anouncement/router'
     | '/(auth)/login/'
     | '/(auth)/register/'
     | '/(pages)/chat/'
+    | '/admin/post-anouncement/'
     | '/cats/$catNameSlug/'
     | '/(pages)/chat/$chatPage/'
   fileRoutesById: FileRoutesById
@@ -150,7 +188,10 @@ export interface RootRouteChildren {
   authRouteRoute: typeof authRouteRouteWithChildren
   pagesRouteRoute: typeof pagesRouteRouteWithChildren
   CatsCatNameSlugRouteRoute: typeof CatsCatNameSlugRouteRouteWithChildren
+  AdminIndexRoute: typeof AdminIndexRoute
   CatsIndexRoute: typeof CatsIndexRoute
+  AdminPostAnouncementRouterRoute: typeof AdminPostAnouncementRouterRoute
+  AdminPostAnouncementIndexRoute: typeof AdminPostAnouncementIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -183,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cats/$catNameSlug': {
       id: '/cats/$catNameSlug'
       path: '/cats/$catNameSlug'
@@ -204,6 +252,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatsCatNameSlugIndexRouteImport
       parentRoute: typeof CatsCatNameSlugRouteRoute
     }
+    '/admin/post-anouncement/': {
+      id: '/admin/post-anouncement/'
+      path: '/admin/post-anouncement'
+      fullPath: '/admin/post-anouncement'
+      preLoaderRoute: typeof AdminPostAnouncementIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/(pages)/chat/': {
       id: '/(pages)/chat/'
       path: '/'
@@ -224,6 +279,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/login'
       preLoaderRoute: typeof authLoginIndexRouteImport
       parentRoute: typeof authRouteRoute
+    }
+    '/admin/post-anouncement/router': {
+      id: '/admin/post-anouncement/router'
+      path: '/admin/post-anouncement/router'
+      fullPath: '/admin/post-anouncement/router'
+      preLoaderRoute: typeof AdminPostAnouncementRouterRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/(pages)/chat/$chatPage/': {
       id: '/(pages)/chat/$chatPage/'
@@ -291,7 +353,10 @@ const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
   pagesRouteRoute: pagesRouteRouteWithChildren,
   CatsCatNameSlugRouteRoute: CatsCatNameSlugRouteRouteWithChildren,
+  AdminIndexRoute: AdminIndexRoute,
   CatsIndexRoute: CatsIndexRoute,
+  AdminPostAnouncementRouterRoute: AdminPostAnouncementRouterRoute,
+  AdminPostAnouncementIndexRoute: AdminPostAnouncementIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
