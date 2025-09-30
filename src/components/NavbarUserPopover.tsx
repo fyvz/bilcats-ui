@@ -22,7 +22,7 @@ const NavbarUserPopover = () => {
 
   return (
     <Menu as="span" className="relative flex items-center">
-      <Menu.Button className="flex items-center space-x-2 border-b border-b-transparent
+      <MenuButton className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-indigo-400 hover:border-b-indigo-400 duration-100 ease-in h-full cursor-pointer outline-0">
         <FaRegUser/>
         {user ? (
@@ -37,7 +37,7 @@ const NavbarUserPopover = () => {
         ) : (
           <span>Sign In</span>
         )}
-      </Menu.Button>
+      </MenuButton>
       <MenuItems className="absolute top-7 right-0 translate-x-1/2 mt-2 w-64 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
       {user ? 
       (<>

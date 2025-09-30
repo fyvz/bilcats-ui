@@ -21,6 +21,7 @@
     "@tanstack/router": "^0.0.1-beta.53",
     "@tanstack/router-plugin": "^1.121.2",
     "axios": "^1.12.2",
+    "embla-carousel-react": "^8.6.0",
     "leaflet": "^1.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

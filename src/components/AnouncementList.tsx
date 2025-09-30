@@ -5,20 +5,82 @@ import AnouncementCard from '@/components/AnouncementCard';
 import { useUser } from '@/context/UserContext';
 import { Link } from '@tanstack/react-router';
 
-const anouncementsQueryOptions = ()=>queryOptions({
-  queryKey: ["anouncement"],
-  queryFn: async () => {
-    const res = await api.get("/anouncements");
-    return res.data;
-  }
-})
+// const anouncementsQueryOptions = ()=>queryOptions({
+//   queryKey: ["anouncement"],
+//   queryFn: async () => {
+//     const res = await api.get("/anouncements");
+//     return res.data;
+//   }
+// })
 
 function AnouncementList() {
     const {user} = useUser();
     const isAdmin = user?.username === "admin";
-    const {data: anouncementsRaw} = useSuspenseQuery(anouncementsQueryOptions())
-    const anouncements = [...anouncementsRaw]
-    console.log(anouncements);
+    // const {data: anouncementsRaw} = useSuspenseQuery(anouncementsQueryOptions())
+    // const anouncements = [...anouncementsRaw]
+const anouncements = [
+{
+  id:1,
+  "_id": {
+    "$oid": "68d6791a0091989aaebb2769"
+  },
+  "author": 1,
+  "cat": "cevher-pasa",
+  "category": "info",
+  "title": "Welcome to Bilcats!",
+  "content": "This is your first anouncement. This is your first anouncement. This is your first anouncement. This is your first anouncement.",
+  "following": 0,
+  "date": {
+    "$date": "2025-09-26T12:00:00.000Z"
+  },
+},
+{
+    id:2,
+  "_id": {
+    "$oid": "68d679470091989aaebb276b"
+  },
+  "author": 1,
+  "cat": "kofte",
+  "category": "info",
+  "title": "Welcome to Bilcats!",
+  "content": "This is your anouncement.",
+  "following": 0,
+  "date": {
+    "$date": "2025-09-20T12:00:00.000Z"
+  }
+},
+{
+    id:3,
+  "_id": {
+    "$oid": "68d6797e0091989aaebb276d"
+  },
+  "author": 1,
+  "cat": "latte",
+  "category": "info",
+  "title": "Welcome to Bilcats!",
+  "content": "This is your first anouncement.",
+  "following": 0,
+  "date": {
+    "$date": "2025-09-26T12:00:00.000Z"
+  }
+},
+{
+    id:4,
+  "_id": {
+    "$oid": "68d679900091989aaebb276f"
+  },
+  "author": 1,
+  "cat": "firuzan",
+  "category": "emergency",
+  "title": "Welcome to Bilcats!",
+  "content": "This is your first anouncement.",
+  "following": 0,
+  "date": {
+    "$date": "2025-09-23T12:00:00.000Z"
+  }
+},
+
+]
 
   return (
     <>

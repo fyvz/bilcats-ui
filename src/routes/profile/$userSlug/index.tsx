@@ -1,7 +1,12 @@
+import { createFileRoute } from '@tanstack/react-router';
 import { useProfile } from "../../../context/ProfileContext";
 import { useUser } from "../../../context/UserContext";
-import { Link, useParams } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+
+export const Route = createFileRoute('/profile/$userSlug/')({
+  component: UserProfile,
+})
 
 // Avatar list type
 const avatarList: string[] = [
@@ -14,9 +19,12 @@ const avatarList: string[] = [
   "/avatars/Cat-Purple.png"
 ];
 
-const UserProfile = () => {
+
+
+
+function UserProfile ()  {
   const { user } = useUser();
-  const { userSlug } = useParams({ from: "/profile/$userSlug" });
+  const { userSlug } = Route.useParams();
   const profile = useProfile();
 
   // Local state for selected avatar
@@ -119,5 +127,3 @@ const UserProfile = () => {
     </div>
   );
 };
-
-export default UserProfile;

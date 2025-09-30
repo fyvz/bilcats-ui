@@ -5,16 +5,15 @@ import { AiOutlineHome } from "react-icons/ai";
 import { IoChatboxOutline } from "react-icons/io5";
 import { PiCat } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
+import { GrMapLocation } from "react-icons/gr";
 // import { useGlobal } from "../context/GlobalContext";
 import { FaBars } from "react-icons/fa6";
 import { Link } from "@tanstack/react-router";
-import { useUser } from "@/context/UserContext";
 import NavbarUserDropDown from "./NavbarUserPopover";
 
 
 const Navbar = () => {
     
-    // const {user} = useGlobal();
 
 
 
@@ -45,9 +44,6 @@ const Navbar = () => {
         };
     }, []);
 
-    const {user} = useUser()
-    
-
     return ( 
 
         <>
@@ -71,6 +67,7 @@ const Navbar = () => {
                     }}>
                         <AiOutlineHome/> <span>Home</span>
                     </Link>
+                    
                     <NavbarUserDropDown />
 
                     <Link to="/chat" title="Chat" className="flex items-center space-x-2 border-b border-b-transparent
@@ -88,7 +85,7 @@ const Navbar = () => {
                         <PiCat/> <span>Cat</span>
                     </Link>
                     <Link to ="/catmap" title="Cat Map" className="flex items-center space-x-2 border-b border-b-transparent hover:text-green-500 hover:border-b-green-500 duration-100 ease-in">
-                        <span>Cat Map</span>
+                        <GrMapLocation/> <span>Cat Map</span>
                     </Link>
                     {/*user && (
                         <Link
