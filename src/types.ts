@@ -79,3 +79,13 @@ export type Anouncement = {
   content: string;
   following: number;
 }
+
+export type BlogPostMeta = {
+  id?: number | string;
+  slug: string;
+  type: "anouncement" | "post" | "news" | "event" | "info";
+  style?: 'neutral' | 'indigo' | "green" | "lime" | "red" | "amber" | "blue";
+  title: string;
+  excerpt: string;
+  date?: string;
+}

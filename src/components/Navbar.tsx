@@ -5,6 +5,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { IoChatboxOutline } from "react-icons/io5";
 import { PiCat } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
+import { TfiAnnouncement } from "react-icons/tfi";
 import { GrMapLocation } from "react-icons/gr";
 // import { useGlobal } from "../context/GlobalContext";
 import { FaBars } from "react-icons/fa6";
@@ -47,7 +48,7 @@ const Navbar = () => {
     return ( 
 
         <>
-        <div ref={menuRef} className={`fixed w-screen flex items-center justify-center  h-20
+        <div ref={menuRef} className={`fixed w-screen flex items-center justify-center  h-24
                         py-4 md:py-6 px-1 sm:px-4 md:px-12 z-200 text-gray-900 dark:text-gray-100`}>
             {/* Blur effect */}
             <div className={`absolute inset-0 -z-10 transition duration-500  ${isScrolling ? 'backdrop-blur-md  bg-neutral-100/80 dark:bg-gray-800/50' : ' bg-neutral-100 dark:bg-gray-800'}`}></div>
@@ -67,7 +68,7 @@ const Navbar = () => {
                     }}>
                         <AiOutlineHome/> <span>Home</span>
                     </Link>
-                    
+
                     <NavbarUserDropDown />
 
                     <Link to="/chat" title="Chat" className="flex items-center space-x-2 border-b border-b-transparent
@@ -77,12 +78,19 @@ const Navbar = () => {
                     }}>
                         <IoChatboxOutline/> <span>Chat</span>
                     </Link>
+                    <Link to="/blog" title="Blog Posts and Announcements" className="flex items-center space-x-2 border-b border-b-transparent
+                     hover:text-red-400 hover:border-b-red-400 duration-100 ease-in"         
+                    activeProps={{
+                    className: "text-red-400 ",
+                    }} >
+                        <TfiAnnouncement/> <span>Blog</span>
+                    </Link>
                     <Link to="/cats" title="The BilCats" className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-amber-400 hover:border-b-amber-400 duration-100 ease-in"         
                     activeProps={{
                     className: "text-amber-400 ",
                     }} >
-                        <PiCat/> <span>Cat</span>
+                        <PiCat/> <span>Cats</span>
                     </Link>
                     <Link to ="/catmap" title="Cat Map" className="flex items-center space-x-2 border-b border-b-transparent hover:text-green-500 hover:border-b-green-500 duration-100 ease-in">
                         <GrMapLocation/> <span>Cat Map</span>
@@ -148,7 +156,7 @@ const Navbar = () => {
         </div>
 
         
-        <div className="h-20">
+        <div className="h-24">
             {/* Empty div for spacing. Leave as is */}
         </div>
         </>

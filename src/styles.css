@@ -4,6 +4,7 @@
   --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 @custom-variant dark (&:where(.dark, .dark *)); /* Dark Mode as a toggle */
+@plugin "@tailwindcss/typography";
 
 body {
   @apply m-0;

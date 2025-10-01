@@ -22,7 +22,7 @@ function RootLayout(){
   return (
      <div className='min-h-screen bg-gray-100 flex flex-col '>
       <Navbar />
-      <div className="flex-grow">
+      <div className="flex-grow flex flex-col">
         <Outlet />
       </div>
         <TanstackDevtools

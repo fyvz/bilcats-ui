@@ -1,0 +1,76 @@
+{
+"blogPosts": [
+  {
+    "id": 1,
+    "slug": "welcome-to-bilcats",
+    "type": "anouncement",
+    "title": "Welcome to BilCats 🐾",
+    "excerpt": "BilCats is live! A new place where students and cat lovers can meet, share stories, and care for our campus cats together.",
+    "date": "2025-09-30"
+  },
+  {
+    "id": 5,
+    "slug": "caring-for-campus-cats-in-winter",
+    "type": "info",
+    "title": "How to Care for Campus Cats in Winter ❄️",
+    "excerpt": "Winter can be tough for outdoor cats. Here are simple ways you can help them stay safe and warm during the cold months.",
+    "date": "2025-10-02"
+  },
+  {
+    "id": 6,
+    "slug": "new-cat-profiles-feature",
+    "type": "anouncement",
+    "title": "New Cat Profiles Are Live 🐱",
+    "excerpt": "You can now view dedicated profiles for each campus cat, complete with photos, favorite hangout spots, and updates.",
+    "date": "2025-10-03"
+  },
+  {
+    "id": 3,
+    "slug": "community-cat-feeding-day",
+    "type": "event",
+    "title": "Community Cat Feeding Day 🍲",
+    "excerpt": "Join us for our first organized feeding day to make sure all campus cats are well-fed and cared for.",
+    "date": "2025-10-05"
+  },
+  {
+    "id": 7,
+    "slug": "donation-system-online",
+    "type": "anouncement",
+    "title": "Donation System is Now Online 💳",
+    "excerpt": "Support our campus cats directly through the new donation feature — every bit helps feed, shelter, and care for them.",
+    "date": "2025-10-07"
+  },
+  {
+    "id": 8,
+    "slug": "bilcats-chat-launch",
+    "type": "anouncement",
+    "title": "BilCats Chat Has Arrived 💬",
+    "excerpt": "A new chat system lets you connect with fellow cat lovers instantly — discuss adoptions, feeding schedules, or just share cute stories.",
+    "date": "2025-10-12"
+  },
+  {
+    "id": 4,
+    "slug": "bilcats-adoption-fair",
+    "type": "event",
+    "title": "BilCats Adoption Fair 🐾",
+    "excerpt": "Come meet our cats in person and maybe find your new furry friend at the first BilCats Adoption Fair.",
+    "date": "2025-10-15"
+  },
+  {
+    "id": 2,
+    "slug": "first-adoption-success",
+    "type": "news",
+    "title": "Our First Adoption Success Story 🏡",
+    "excerpt": "Mia, a shy calico cat from campus, has found a loving home thanks to the BilCats community.",
+    "date": "2025-10-01"
+  },
+  {
+    "id": 9,
+    "slug": "why-do-cats-play-with-their-prey",
+    "type": "info",
+    "title": "Why Do Cats Play With Their Prey? 🐭",
+    "excerpt": "Cats often toy with their prey before eating or leaving it — a behavior rooted in instinct, energy control, and survival strategy.",
+    "date": "2025-10-20"
+  }
+]
+}
