@@ -1,5 +1,6 @@
-import styleTable from '@/blogstyles';
+
 import OverlayTitle from '@/components/OverlayTitle';
+import { blogPostStyles }  from '@/macros';
 import type { BlogPostMeta } from '@/types'
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -55,7 +56,7 @@ function BlogPage() {
          
             {/* Blog Post Card */}
             {blogPosts.map((blogPost:BlogPostMeta )=>{
-              const currentStyle = styleTable[blogPost.type]
+              const currentStyle = blogPostStyles[blogPost.type]
               return (
               <div key={blogPost.id} 
               className={`bg-white rounded-xl 

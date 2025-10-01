@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import {QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { CatProvider } from './context/CatContext';
 import { ProfileProvider } from './context/ProfileContext';
 
 // Import the generated route tree
@@ -50,13 +49,11 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <UserProvider>
       <QueryClientProvider client={queryClient}>
-        <CatProvider>
           <ProfileProvider>
             <StrictMode>
               <RouterProvider router={router} />
             </StrictMode>
           </ProfileProvider>
-        </CatProvider>
       </QueryClientProvider>
     </UserProvider>
   )

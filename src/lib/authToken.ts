@@ -1,9 +1,9 @@
-let accesToken: string | null = null;
+let accessToken: string | null = null;
 
 export const setStoredAccessToken = (token: string|null) => {
-    accesToken = token;
+    accessToken = token;
 }
 
 export const getStoredAccessToken = () => {
-    return accesToken;
+    return accessToken;
 }

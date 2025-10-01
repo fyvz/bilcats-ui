@@ -52,7 +52,7 @@ function ChatPageSelectedPage() {
       setTypedMessage("")
     } catch (err) {
       console.log(err);
-      alert("Failed to create idea!");
+      alert("Failed to create message!");
     }
   }
   

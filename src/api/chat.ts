@@ -8,3 +8,4 @@ export const createChatMessage = async (newMessage : {
     const res = await api.post(`/messages/${newMessage.chatPage}`, {content: newMessage.content})
     return res.data
 }
+

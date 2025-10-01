@@ -1,4 +1,5 @@
-import styleTable from '@/blogstyles';
+
+import { blogPostStyles } from '@/macros';
 import type { BlogPostMeta } from '@/types';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link } from '@tanstack/react-router'
@@ -22,16 +23,17 @@ const blogPostOptions = (blogPostSlug:string) => ({
 
 
 export const Route = createFileRoute('/blog/$blogPost/')({
-  component: RouteComponent,
+  component: BlogPostPage,
   loader: async ({context:{queryClient}, params:{blogPost}}) => 
     queryClient.ensureQueryData(blogPostOptions(blogPost))
 })
 
-function RouteComponent() {
-  const {blogPost:blogPostSlug} = Route.useParams()
+function BlogPostPage() {
+const {blogPost:blogPostSlug} = Route.useParams()
   const {data} = useSuspenseQuery(blogPostOptions(blogPostSlug))
   const blogPostMeta = data.blogPostMeta as BlogPostMeta
-  const tagStyle:string = styleTable[blogPostMeta.type].tagStyle;
+  
+  const tagStyle:string = blogPostStyles[blogPostMeta.type].tagStyle;
   return (
     <div className="mx-auto bg-white rounded-2xl p-6 w-full md:max-w-2xl my-4 border border-gray-200 shadow-sm">
       <div className="w-full flex justify-end"><Link to="/blog" className='text-blue-400 hover:underline hover:text-blue-500 transition'>← Back to Blog</Link></div>

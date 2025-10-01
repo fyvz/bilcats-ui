@@ -66,6 +66,7 @@ export type LoginType = {
   password: string;
 }
 
+
 export type Anouncement = {
   id: number;
   author: {

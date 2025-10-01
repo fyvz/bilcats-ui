@@ -5,7 +5,7 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
 import markerIcon from 'leaflet/dist/images/marker-icon.png'
 import markerShadow from 'leaflet/dist/images/marker-shadow.png'
 import { useNavigate } from '@tanstack/react-router'
-import { useCats } from '../../context/CatContext'
+
 
 // Fix leaflet's default icon paths for Vite/React
 delete (L.Icon.Default.prototype as any)._getIconUrl
@@ -24,12 +24,60 @@ type Cat = {
   breed: string
   age: number
   description: string
-  img: string
+  img: string,
+  mostVisited?: string[];
+  trait?:string[];
   location: [number, number]
 }
 
 const CatMap: React.FC = () => {
-  const { cats }: { cats: Cat[] } = useCats()
+  const cats : Cat[] = [
+    {
+      id: 1,
+      name: "Cevher Pasa",
+      img: "/cat-profiles/cevher-pasa.jpg",
+      age: 2,
+      breed: "British Shorthair",
+      description: "Playful and loves to nap in the sun.",
+      trait: [
+        "Loves chasing laser pointers 🐾",
+        "Enjoys sunbathing by the window ☀️",
+        "Greets everyone at the cafeteria entrance 😺",
+      ],
+      mostVisited: ["EE Building", "Main Cafeteria", "Library"],
+      location: [39.8710, 32.7497],
+    },
+    {
+      id: 2,
+      name: "Latte",
+      img: "/cat-profiles/latte.jpg",
+      age: 3,
+      breed: "Siamese",
+      description: "Curious and very talkative.",
+      trait: [
+        "Loves chasing laser pointers 🐾",
+        "Enjoys sunbathing by the window ☀️",
+        "Greets everyone at the cafeteria entrance 😺",
+      ],
+      mostVisited: ["EE Building", "Main Cafeteria", "Library"],
+      location: [39.8702, 32.7488],
+    },
+    {
+      id: 3,
+      name: "Damat",
+      img: "/cat-profiles/damat.jpg",
+      age: 1,
+      breed: "Maine Coon",
+      description: "Gentle giant who loves cuddles.",
+      trait: [
+        "Loves chasing laser pointers 🐾",
+        "Enjoys sunbathing by the window ☀️",
+        "Greets everyone at the cafeteria entrance 😺",
+      ],
+      mostVisited: ["EE Building", "Main Cafeteria", "Library"],
+      location: [39.8708, 32.7502],
+    },
+  ];
   const navigate = useNavigate()
 
   return (

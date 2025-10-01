@@ -51,7 +51,7 @@ const Navbar = () => {
         <div ref={menuRef} className={`fixed w-screen flex items-center justify-center  h-24
                         py-4 md:py-6 px-1 sm:px-4 md:px-12 z-200 text-gray-900 dark:text-gray-100`}>
             {/* Blur effect */}
-            <div className={`absolute inset-0 -z-10 transition duration-500  ${isScrolling ? 'backdrop-blur-md  bg-neutral-100/80 dark:bg-gray-800/50' : ' bg-neutral-100 dark:bg-gray-800'}`}></div>
+            <div className={`absolute inset-0 -z-10 transition duration-500  ${isScrolling ? 'backdrop-blur-md  bg-neutral-100/80 dark:bg-gray-800/50' : ' bg-white dark:bg-gray-800'}`}></div>
             {/* Navbar Container */}
             <div className="flex justify-around sm:justify-between items-center max-w-[1200px] mx-auto w-full ">
                 {/* Logo Container */}

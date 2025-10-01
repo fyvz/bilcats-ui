@@ -11,9 +11,9 @@ const HomePageHero = () => {
     >
         <div className="max-w-md w-fit">
             <h1 className="font-bold text-4xl text-shadow-sm leading-10">
-                <span className="text-orange-400">EVERY CAT</span><br />
+                <span className="text-sky-400">EVERY CAT</span><br />
                 <span className="text-emerald-400">DESERVES</span><br />
-                <span className="text-sky-400">A CAMPUS HERO</span>
+                <span className="text-orange-400">A CAMPUS HERO</span>
             </h1>
 
             <p className="mt-6 leading-8 font-medium text-shadow-sm text-lg">
@@ -29,7 +29,7 @@ const HomePageHero = () => {
                 </Link>
                 <p>or</p>
                 <Link to="/register">
-                    <button className="w-30 py-2 px-4 bg-amber-500 rounded text-white shadow-md text-shadow-md transition-colors hover:bg-amber-600 cursor-pointer duration-100 ease-in">
+                    <button className="w-30 py-2 px-4 bg-orange-500 rounded text-white shadow-md text-shadow-md transition-colors hover:bg-orange-600 cursor-pointer duration-100 ease-in">
                         Join Us
                     </button>
                 </Link>

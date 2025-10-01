@@ -15,6 +15,7 @@ import { Route as authRouteRouteImport } from './routes/(auth)/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatsIndexRouteImport } from './routes/cats/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as ProfileUserSlugRouteRouteImport } from './routes/profile/$userSlug/route'
 import { Route as CatsCatNameSlugRouteRouteImport } from './routes/cats/$catNameSlug/route'
 import { Route as pagesChatRouteRouteImport } from './routes/(pages)/chat/route'
 import { Route as ProfileUserSlugIndexRouteImport } from './routes/profile/$userSlug/index'
@@ -23,6 +24,7 @@ import { Route as BlogBlogPostIndexRouteImport } from './routes/blog/$blogPost/i
 import { Route as pagesChatIndexRouteImport } from './routes/(pages)/chat/index'
 import { Route as authRegisterIndexRouteImport } from './routes/(auth)/register/index'
 import { Route as authLoginIndexRouteImport } from './routes/(auth)/login/index'
+import { Route as ProfileUserSlugEditIndexRouteImport } from './routes/profile/$userSlug/edit/index'
 import { Route as pagesChatChatPageIndexRouteImport } from './routes/(pages)/chat/$chatPage/index'
 
 const CatmapRouteRoute = CatmapRouteRouteImport.update({
@@ -53,6 +55,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileUserSlugRouteRoute = ProfileUserSlugRouteRouteImport.update({
+  id: '/profile/$userSlug',
+  path: '/profile/$userSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatsCatNameSlugRouteRoute = CatsCatNameSlugRouteRouteImport.update({
   id: '/cats/$catNameSlug',
   path: '/cats/$catNameSlug',
@@ -64,9 +71,9 @@ const pagesChatRouteRoute = pagesChatRouteRouteImport.update({
   getParentRoute: () => pagesRouteRoute,
 } as any)
 const ProfileUserSlugIndexRoute = ProfileUserSlugIndexRouteImport.update({
-  id: '/profile/$userSlug/',
-  path: '/profile/$userSlug/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProfileUserSlugRouteRoute,
 } as any)
 const CatsCatNameSlugIndexRoute = CatsCatNameSlugIndexRouteImport.update({
   id: '/',
@@ -93,6 +100,12 @@ const authLoginIndexRoute = authLoginIndexRouteImport.update({
   path: '/login/',
   getParentRoute: () => authRouteRoute,
 } as any)
+const ProfileUserSlugEditIndexRoute =
+  ProfileUserSlugEditIndexRouteImport.update({
+    id: '/edit/',
+    path: '/edit/',
+    getParentRoute: () => ProfileUserSlugRouteRoute,
+  } as any)
 const pagesChatChatPageIndexRoute = pagesChatChatPageIndexRouteImport.update({
   id: '/$chatPage/',
   path: '/$chatPage/',
@@ -104,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/catmap': typeof CatmapRouteRoute
   '/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/profile/$userSlug': typeof ProfileUserSlugRouteRouteWithChildren
   '/blog': typeof BlogIndexRoute
   '/cats': typeof CatsIndexRoute
   '/login': typeof authLoginIndexRoute
@@ -111,8 +125,9 @@ export interface FileRoutesByFullPath {
   '/chat/': typeof pagesChatIndexRoute
   '/blog/$blogPost': typeof BlogBlogPostIndexRoute
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
-  '/profile/$userSlug': typeof ProfileUserSlugIndexRoute
+  '/profile/$userSlug/': typeof ProfileUserSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
+  '/profile/$userSlug/edit': typeof ProfileUserSlugEditIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof pagesRouteRouteWithChildren
@@ -126,6 +141,7 @@ export interface FileRoutesByTo {
   '/cats/$catNameSlug': typeof CatsCatNameSlugIndexRoute
   '/profile/$userSlug': typeof ProfileUserSlugIndexRoute
   '/chat/$chatPage': typeof pagesChatChatPageIndexRoute
+  '/profile/$userSlug/edit': typeof ProfileUserSlugEditIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -135,6 +151,7 @@ export interface FileRoutesById {
   '/catmap': typeof CatmapRouteRoute
   '/(pages)/chat': typeof pagesChatRouteRouteWithChildren
   '/cats/$catNameSlug': typeof CatsCatNameSlugRouteRouteWithChildren
+  '/profile/$userSlug': typeof ProfileUserSlugRouteRouteWithChildren
   '/blog/': typeof BlogIndexRoute
   '/cats/': typeof CatsIndexRoute
   '/(auth)/login/': typeof authLoginIndexRoute
@@ -144,6 +161,7 @@ export interface FileRoutesById {
   '/cats/$catNameSlug/': typeof CatsCatNameSlugIndexRoute
   '/profile/$userSlug/': typeof ProfileUserSlugIndexRoute
   '/(pages)/chat/$chatPage/': typeof pagesChatChatPageIndexRoute
+  '/profile/$userSlug/edit/': typeof ProfileUserSlugEditIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -152,6 +170,7 @@ export interface FileRouteTypes {
     | '/catmap'
     | '/chat'
     | '/cats/$catNameSlug'
+    | '/profile/$userSlug'
     | '/blog'
     | '/cats'
     | '/login'
@@ -159,8 +178,9 @@ export interface FileRouteTypes {
     | '/chat/'
     | '/blog/$blogPost'
     | '/cats/$catNameSlug/'
-    | '/profile/$userSlug'
+    | '/profile/$userSlug/'
     | '/chat/$chatPage'
+    | '/profile/$userSlug/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -174,6 +194,7 @@ export interface FileRouteTypes {
     | '/cats/$catNameSlug'
     | '/profile/$userSlug'
     | '/chat/$chatPage'
+    | '/profile/$userSlug/edit'
   id:
     | '__root__'
     | '/'
@@ -182,6 +203,7 @@ export interface FileRouteTypes {
     | '/catmap'
     | '/(pages)/chat'
     | '/cats/$catNameSlug'
+    | '/profile/$userSlug'
     | '/blog/'
     | '/cats/'
     | '/(auth)/login/'
@@ -191,6 +213,7 @@ export interface FileRouteTypes {
     | '/cats/$catNameSlug/'
     | '/profile/$userSlug/'
     | '/(pages)/chat/$chatPage/'
+    | '/profile/$userSlug/edit/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -199,10 +222,10 @@ export interface RootRouteChildren {
   pagesRouteRoute: typeof pagesRouteRouteWithChildren
   CatmapRouteRoute: typeof CatmapRouteRoute
   CatsCatNameSlugRouteRoute: typeof CatsCatNameSlugRouteRouteWithChildren
+  ProfileUserSlugRouteRoute: typeof ProfileUserSlugRouteRouteWithChildren
   BlogIndexRoute: typeof BlogIndexRoute
   CatsIndexRoute: typeof CatsIndexRoute
   BlogBlogPostIndexRoute: typeof BlogBlogPostIndexRoute
-  ProfileUserSlugIndexRoute: typeof ProfileUserSlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -249,6 +272,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile/$userSlug': {
+      id: '/profile/$userSlug'
+      path: '/profile/$userSlug'
+      fullPath: '/profile/$userSlug'
+      preLoaderRoute: typeof ProfileUserSlugRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cats/$catNameSlug': {
       id: '/cats/$catNameSlug'
       path: '/cats/$catNameSlug'
@@ -265,10 +295,10 @@ declare module '@tanstack/react-router' {
     }
     '/profile/$userSlug/': {
       id: '/profile/$userSlug/'
-      path: '/profile/$userSlug'
-      fullPath: '/profile/$userSlug'
+      path: '/'
+      fullPath: '/profile/$userSlug/'
       preLoaderRoute: typeof ProfileUserSlugIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ProfileUserSlugRouteRoute
     }
     '/cats/$catNameSlug/': {
       id: '/cats/$catNameSlug/'
@@ -304,6 +334,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/login'
       preLoaderRoute: typeof authLoginIndexRouteImport
       parentRoute: typeof authRouteRoute
+    }
+    '/profile/$userSlug/edit/': {
+      id: '/profile/$userSlug/edit/'
+      path: '/edit'
+      fullPath: '/profile/$userSlug/edit'
+      preLoaderRoute: typeof ProfileUserSlugEditIndexRouteImport
+      parentRoute: typeof ProfileUserSlugRouteRoute
     }
     '/(pages)/chat/$chatPage/': {
       id: '/(pages)/chat/$chatPage/'
@@ -366,16 +403,29 @@ const CatsCatNameSlugRouteRouteChildren: CatsCatNameSlugRouteRouteChildren = {
 const CatsCatNameSlugRouteRouteWithChildren =
   CatsCatNameSlugRouteRoute._addFileChildren(CatsCatNameSlugRouteRouteChildren)
 
+interface ProfileUserSlugRouteRouteChildren {
+  ProfileUserSlugIndexRoute: typeof ProfileUserSlugIndexRoute
+  ProfileUserSlugEditIndexRoute: typeof ProfileUserSlugEditIndexRoute
+}
+
+const ProfileUserSlugRouteRouteChildren: ProfileUserSlugRouteRouteChildren = {
+  ProfileUserSlugIndexRoute: ProfileUserSlugIndexRoute,
+  ProfileUserSlugEditIndexRoute: ProfileUserSlugEditIndexRoute,
+}
+
+const ProfileUserSlugRouteRouteWithChildren =
+  ProfileUserSlugRouteRoute._addFileChildren(ProfileUserSlugRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   authRouteRoute: authRouteRouteWithChildren,
   pagesRouteRoute: pagesRouteRouteWithChildren,
   CatmapRouteRoute: CatmapRouteRoute,
   CatsCatNameSlugRouteRoute: CatsCatNameSlugRouteRouteWithChildren,
+  ProfileUserSlugRouteRoute: ProfileUserSlugRouteRouteWithChildren,
   BlogIndexRoute: BlogIndexRoute,
   CatsIndexRoute: CatsIndexRoute,
   BlogBlogPostIndexRoute: BlogBlogPostIndexRoute,
-  ProfileUserSlugIndexRoute: ProfileUserSlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
