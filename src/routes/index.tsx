@@ -4,7 +4,7 @@ import SayHello from '@/components/SayHello';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import AnouncementList from '@/components/AnouncementList';
-
+import {motion} from 'framer-motion';
 
 
 
@@ -32,8 +32,13 @@ function HomePage() {
   <>
     <HomePageHero /> 
     {/* Say Hello To style={{ backgroundImage: `url(${HeroBg})` }}*/}
-    <SayHello selectedCats={data.cats} />
-    {/* How it Works */}
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  <SayHello selectedCats={data.cats} />
+</motion.div>    {/* How it Works */}
     <HowItWorks />
     {/* <AnouncementList /> */}
   </>

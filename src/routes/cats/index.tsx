@@ -3,6 +3,7 @@ import OverlayTitle from '@/components/OverlayTitle';
 import type { Cat } from '@/types';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router'
+import {motion} from 'framer-motion';
 
 const catQueryOptions = () => queryOptions({
   queryKey: ['cats'],
@@ -36,7 +37,12 @@ return (
   </div>
   </OverlayTitle>
   <div className='max-w-6xl mx-auto my-4 p-2'>
-       <div className="grid md:grid-cols-2 gap-10 items-center mx-auto">
+       <motion.div 
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         transition={{ duration: 0.5 }}
+         className="grid md:grid-cols-2 gap-10 items-center mx-auto"
+       >
           {
             cats.map((cat:Cat) => {
               return (
@@ -44,8 +50,7 @@ return (
               )
             })
           }
-      </div>
-  </div>
+      </motion.div>  </div>
     </>
      );
 }

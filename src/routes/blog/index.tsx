@@ -4,7 +4,7 @@ import { blogPostStyles }  from '@/macros';
 import type { BlogPostMeta } from '@/types'
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link } from '@tanstack/react-router'
-
+import {motion} from 'framer-motion';
 
 const blogMetaQueryOptions = () => queryOptions({
   queryKey: ['blogmeta'],
@@ -55,15 +55,23 @@ function BlogPage() {
             
          
             {/* Blog Post Card */}
-            {blogPosts.map((blogPost:BlogPostMeta )=>{
+            {blogPosts.map((blogPost:BlogPostMeta, index:number)=>{
               const currentStyle = blogPostStyles[blogPost.type]
               return (
-              <div key={blogPost.id} 
-              className={`bg-white rounded-xl 
-              px-3 py-4 
-              border  border-gray-200
-              shadow-sm
-              h-full`}
+              <motion.div 
+                key={blogPost.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
+                className={`bg-white rounded-xl 
+                px-3 py-4 
+                border border-gray-200
+                shadow-sm
+                h-full`}
               >
                 <h2 className={`text-lg mb-2 text-black`}>
                   {blogPost.title}
@@ -77,7 +85,7 @@ function BlogPage() {
                   <div className={`py-1 px-2 rounded-lg text-sm capitalize h-fit  ${currentStyle?.tagStyle}`}>
                     {blogPost.type}
                   </div>
-                  <button  className={`py-2 px-4 transition bg-black text-white rounded-lg hover:bg-gray-800`}>
+                  <button className={`py-2 px-4 transition bg-black text-white rounded-lg hover:bg-gray-800`}>
                     <Link 
                     to="/blog/$blogPost"  
                     params={{blogPost:blogPost.slug}} 
@@ -86,7 +94,7 @@ function BlogPage() {
                     </Link>  
                   </button>
                 </div>
-              </div>)
+              </motion.div>)
             })}
     </div>
   </div>

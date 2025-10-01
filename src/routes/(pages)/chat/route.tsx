@@ -3,6 +3,7 @@ import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 import api from '@/lib/axios';
 import type { Conversation } from '@/types';
 import OverlayTitle from '@/components/OverlayTitle';
+import {motion} from 'framer-motion';
 
 const chatQueryOptions = ()=>queryOptions({
   queryKey: ["chat"],
@@ -50,9 +51,12 @@ function ChatLayout() {
                 })}
             </div>
             {/* Chat Messages */}
-            <div className="flex-1 min-h-0  w-full  max-h-full overflow-hidden flex flex-col">
-                <Outlet />
-            </div>
+        <motion.div className="flex-1 min-h-0  w-full  max-h-full overflow-hidden flex flex-col"   initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}>
+
+        <Outlet />
+      </motion.div>
         </div>
     </div>
     </>
