@@ -2,6 +2,7 @@ import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 import api from '@/lib/axios';
 import type { Conversation } from '@/types';
+import OverlayTitle from '@/components/OverlayTitle';
 
 const chatQueryOptions = ()=>queryOptions({
   queryKey: ["chat"],
@@ -32,10 +33,7 @@ function ChatLayout() {
     <>
 
    <div className=" flex h-full min-h-0 flex-col ">
-        <div className="h-18">
-          <h1 className="text-2xl dark:text-gray-100 text-gray-900">Conversations</h1>
-          <hr className="mt-2 mb-4 text-indigo-200 "/>
-        </div>
+
         <div className="flex flex-row flex-1 min-h-0">
             <div className="flex flex-col w-64 p-4 gap-4 border-r border-r-indigo-100 ">
                 {chatPages.map((conversation: Conversation) => {

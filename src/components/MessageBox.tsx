@@ -36,9 +36,9 @@ const MessageBox = ({user,time,content}:MessageRender) => {
                 <div className="flex flex-col">
                     <div className="">
                         <div className=" space-x-2">
-                        <Link to="/chat" className="text-black font-semibold">@{user.username}</Link><span className="font-semibold text-neutral-600">•</span><span className="font-semibold text-neutral-400">{hhmm}</span>
+                        <Link to="/profile/$userSlug" params={{userSlug: user.username}} className="text-black font-semibold">@{user.username}</Link><span className="font-semibold text-neutral-600">•</span><span className="font-semibold text-neutral-400">{hhmm}</span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-md max-w-md">
                             {content}
                         </div>
                     </div>

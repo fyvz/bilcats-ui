@@ -1,5 +1,5 @@
-import AnouncementCard from '@/components/AnouncementCard'
-import Footer from '@/components/Footer'
+
+import OverlayTitle from '@/components/OverlayTitle'
 import { useUser } from '@/context/UserContext'
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 
@@ -26,12 +26,27 @@ function PagesLayout() {
         </section>
      )
   }
+  
   return (
   <>
-     <main className="flex justify-center p-6 min-h-[600px] h-[94vh]">
-      <div className="w-full h-full lg:w-6xl bg-white rounded-2xl shadow-lg p-8">
+    <OverlayTitle image="assets/chat-page-header-bg.jpg" overlayStyle="bg-black/30 backdrop-blur-sm">
+  <div className='w-full md:w-xl mx-auto  py-6 text-center'>
+        <h1 className='text-white text-3xl mb-4 text-shadow-lg text-shadow-black/30'>Join the Conversation</h1>
+        <p className='text-white text-lg text-shadow-lg text-shadow-black/30 mb-2'>
+         Collaborate, and share your thoughts with others.  
+        </p>
+      {/* <div className="mt-2 rounded-2xl bg-black/50 p-4">
+      
+      </div> */}
+  </div>
+  </OverlayTitle>
+
+     <main className="bg-white flex  justify-center p-6 min-h-[600px] h-[94vh]">
+      <div className="w-full h-full lg:w-6xl  p-8">
         <Outlet />
       </div>
+
+
      </main>
 
   </>

@@ -35,7 +35,7 @@ function HomePage() {
     <SayHello selectedCats={data.cats} />
     {/* How it Works */}
     <HowItWorks />
-    <AnouncementList />
+    {/* <AnouncementList /> */}
   </>
   )
 }
