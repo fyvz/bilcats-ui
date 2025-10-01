@@ -66,12 +66,13 @@ function ChatPageSelectedPage() {
     <div className="flex-1 min-h-0 flex flex-col gap-2 p-4 overflow-y-scroll">
       {messages.map((message: ChatMessage) => {
       const messageRender: MessageRender = {
-        userName: message.user.username,
+        user: message.user,
         content: message.content,
         time: message.createdAt,
+        
       }
       return (
-        <MessageBox key={message._id} userName={messageRender.userName} time={messageRender.time} content={messageRender.content} />
+        <MessageBox key={message._id} user={messageRender.user} time={messageRender.time} content={messageRender.content} />
       )
     })}
     </div>

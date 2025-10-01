@@ -40,7 +40,7 @@ export type ChatMessage = {
 
 
 export type MessageRender = {
-    userName:  string;
+    user:  UserInfo;
     content: string;
     time: string,
     interactions?: Record<string,string> 
@@ -49,7 +49,7 @@ export type MessageRender = {
 export type UserInfo = {
     _id: string;  
     username: string;
-    profilePic?: string;
+    profile:{avatar:string|number|Number}
 }
 
 

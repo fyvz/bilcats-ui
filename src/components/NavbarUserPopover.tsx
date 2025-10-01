@@ -18,23 +18,17 @@ const NavbarUserPopover = () => {
       console.log("Failed to logout - ",err);
     }
   }
-    
-
+   
   return (
     <Menu as="span" className="relative flex items-center">
       <MenuButton className="flex items-center space-x-2 border-b border-b-transparent
                      hover:text-indigo-400 hover:border-b-indigo-400 duration-100 ease-in h-full cursor-pointer outline-0">
         <FaRegUser/>
-        {user ? (
-          <Link
-            to="/profile/$userSlug"
-            params={{ userSlug: user.username.toLowerCase() }}
-            className="hover:underline text-inherit"
-            onClick={e => e.stopPropagation()}
-          >
-            {user.username}
-          </Link>
-        ) : (
+        {user ? 
+            <span>
+              {user.username}
+            </span>
+         : (
           <span>Sign In</span>
         )}
       </MenuButton>
@@ -43,6 +37,15 @@ const NavbarUserPopover = () => {
       (<>
           <div className="w-full p-1">
             <p className="mt-1 text-center text-base text-neutral-700 cursor-default">Hello, {user.username}</p>
+            <MenuItem>
+                <Link
+            to="/profile/$userSlug"
+            params={{ userSlug: user.username.toLowerCase() }}
+            className="group block w-full text-center  px-2 py-2 text-base text-blue-500 text-shadow-xs data-[active]:bg-blue-50 data-[active]:text-blue-800 cursor-pointer"
+            onClick={e => e.stopPropagation()}
+          >Profile
+          </Link>
+            </MenuItem>
             <MenuItem>
               <button onClick={handleLogout} className="group block w-full text-center  px-2 py-2 text-base text-red-500 text-shadow-xs data-[active]:bg-red-50 data-[active]:text-red-800 cursor-pointer">
               Sign Out

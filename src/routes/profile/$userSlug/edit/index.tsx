@@ -65,6 +65,7 @@ function EditProfile() {
             alert("Failed to update profile!");
         }
     }
+
   return (
     <div className="p-8 pt-24 min-h-screen flex flex-col items-center bg-gradient-to-b from-blue-50 to-white">
       <div className="bg-white rounded-xl shadow-lg border border-blue-100 w-full max-w-3xl flex flex-col md:flex-row items-stretch p-0">

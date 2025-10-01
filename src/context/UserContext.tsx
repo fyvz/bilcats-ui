@@ -6,7 +6,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 type UserContextType = {
     accessToken: null | string;
     setAccessToken: (token: null | string) => void;
-    user: {id: string; email: string; username: string; name?: string} | null;
+    user: {id: string; email: string; username: string; name?: string, profile:{avatar?:string|number, description:string}} | null;
     setUser: (user: UserContextType["user"]) => void;
 }
 
