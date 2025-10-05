@@ -43,12 +43,12 @@ function EditProfile() {
     const [profileDescription, setProfileDescription] = useState<String>(description);
 
     //Configure the form mutation:
-    const {mutateAsync, isPending} = useMutation({
+    const {mutateAsync} = useMutation({
         mutationFn: profileEdit,
-        onSuccess: (data)=>{
+        onSuccess: ()=>{
             navigate({to: "/profile/$userSlug", params:{userSlug: username}})
         },
-        onError: (err)=>{
+        onError: ()=>{
             alert("Failed to save profile!")
         }
     })

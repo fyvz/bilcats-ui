@@ -2,7 +2,7 @@ import { createChatMessage } from '@/api/chat';
 import MessageBox from '@/components/MessageBox';
 import api from '@/lib/axios';
 import type { ChatMessage, MessageRender } from '@/types';
-import { queryOptions, useMutation, useQueryClient, useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
+import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react';
 import { IoIosSend } from "react-icons/io";
@@ -31,7 +31,7 @@ function ChatPageSelectedPage() {
   const queryClientSuspense = useSuspenseQuery(chatPageSelectedOptions(chatPage))
   const messages = [...queryClientSuspense.data.messages].reverse()
   
-  const {mutateAsync, isPending} = useMutation({
+  const {mutateAsync} = useMutation({
     mutationFn: createChatMessage,
     onSuccess: () =>{
       queryClient.invalidateQueries({ queryKey: ["chatPageSelected", chatPage] })

@@ -4,16 +4,12 @@ import { Link } from "@tanstack/react-router";
 import { AiOutlineHome } from "react-icons/ai";
 import { IoChatboxOutline } from "react-icons/io5";
 import { PiCat } from "react-icons/pi";
-import { FaRegUser } from "react-icons/fa";
+
 import { LuPawPrint } from "react-icons/lu";
 
 const Footer = () => {
     
-    const user = {
-        userName: "",
-        loggedIn: false,
 
-    }
     return ( 
         <>
         <section className="bg-white dark:bg-gray-900">

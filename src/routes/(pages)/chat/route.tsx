@@ -2,7 +2,6 @@ import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 import api from '@/lib/axios';
 import type { Conversation } from '@/types';
-import OverlayTitle from '@/components/OverlayTitle';
 import {motion} from 'framer-motion';
 
 const chatQueryOptions = ()=>queryOptions({

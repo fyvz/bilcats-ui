@@ -9,7 +9,8 @@ const CatCardHome = ({cat}:{cat: Cat}) => {
 
 
         <Link
-        to={`/cats/${cat.slug}`}
+        to={`/cats/$catNameSlug`}
+        params={{catNameSlug: cat.slug}}
         className="group relative block mx-auto aspect-[7/4] max-w-md overflow-hidden rounded-md bg-gray-950 shadow-md hover:shadow-lg transition"
         >
             <img

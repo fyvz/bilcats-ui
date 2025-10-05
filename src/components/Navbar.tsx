@@ -4,7 +4,7 @@ import {useState, useRef, useEffect} from "react"
 import { AiOutlineHome } from "react-icons/ai";
 import { IoChatboxOutline } from "react-icons/io5";
 import { PiCat } from "react-icons/pi";
-import { FaRegUser } from "react-icons/fa";
+
 import { TfiAnnouncement } from "react-icons/tfi";
 import { GrMapLocation } from "react-icons/gr";
 // import { useGlobal } from "../context/GlobalContext";

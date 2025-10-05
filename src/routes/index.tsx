@@ -3,7 +3,6 @@ import HowItWorks from '@/components/HowItWorks';
 import SayHello from '@/components/SayHello';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
-import AnouncementList from '@/components/AnouncementList';
 import {motion} from 'framer-motion';
 
 
@@ -40,7 +39,6 @@ function HomePage() {
   <SayHello selectedCats={data.cats} />
 </motion.div>    {/* How it Works */}
     <HowItWorks />
-    {/* <AnouncementList /> */}
   </>
   )
 }

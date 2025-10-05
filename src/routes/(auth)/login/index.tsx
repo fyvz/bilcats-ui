@@ -15,6 +15,8 @@ function LoginPage() {
 
   const [loginForm, setLoginForm] = useState<LoginType>({email:"",password:""})
   const [error, setError] = useState("")
+  if(error)console.log(error);
+  
   const navigate = useNavigate();
   const {setUser, setAccessToken} = useUser()
 
@@ -39,6 +41,7 @@ function LoginPage() {
         console.log(err.message);
       }
     }
+
 
 
   return (

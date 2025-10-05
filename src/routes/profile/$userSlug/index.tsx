@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { avatarList } from '@/macros';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { profileView } from '@/api/profile';
