@@ -6,6 +6,8 @@ import { IoChatboxOutline } from "react-icons/io5";
 import { PiCat } from "react-icons/pi";
 
 import { LuPawPrint } from "react-icons/lu";
+import { GrMapLocation } from "react-icons/gr";
+import { TfiAnnouncement } from "react-icons/tfi";
 
 const Footer = () => {
     
@@ -32,12 +34,17 @@ const Footer = () => {
                         <Link to="/chat" className="flex items-center space-x-2 py-2 hover:text-blue-400">
                             <IoChatboxOutline/> <span>Chat</span>
                         </Link>
-                        <Link to="/cats" className="flex items-center space-x-2 py-2 hover:text-amber-400">
-                            <PiCat/> <span>Cat</span>
+                        <Link to="/blog" title="Blog Posts and Announcements" className="flex items-center space-x-2 border-b border-b-transparent
+                            hover:text-red-400 hover:border-b-red-400 duration-100 ease-in"         >
+                            <TfiAnnouncement/> <span>Blog</span>
                         </Link>
-                        {/* <Link to="/user/" className="flex items-center space-x-2 py-2 hover:text-red-400">
-                            <FaRegUser/> <span>{user.loggedIn ? `${user.userName}` : "Sign In"}</span>
-                        </Link> */}
+                        <Link to="/cats" className="flex items-center space-x-2 py-2 hover:text-amber-400">
+                            <PiCat/> <span>Cats</span>
+                        </Link>
+                        <Link to ="/catmap" title="Cat Map" className="flex items-center space-x-2 border-b border-b-transparent hover:text-green-500 hover:border-b-green-500 duration-100 ease-in">
+                            <GrMapLocation/> <span className="w-16">Cat Map</span>
+                        </Link>
+
                     </div>
                 </div>
             </div>

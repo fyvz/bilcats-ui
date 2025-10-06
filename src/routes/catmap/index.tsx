@@ -5,6 +5,7 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
 import markerIcon from 'leaflet/dist/images/marker-icon.png'
 import markerShadow from 'leaflet/dist/images/marker-shadow.png'
 import { useNavigate } from '@tanstack/react-router'
+import OverlayTitle from '@/components/OverlayTitle'
 
 
 // Fix leaflet's default icon paths for Vite/React
@@ -81,34 +82,44 @@ const CatMap: React.FC = () => {
   const navigate = useNavigate()
 
   return (
+    <>
+          <OverlayTitle image="assets/blog-post-header-bg.jpg" overlayStyle="bg-black/30 backdrop-blur-sm">
+      <div className='w-full md:w-xl mx-auto  py-6 text-center'>
+          <h1 className='text-white text-3xl mb-4 text-shadow-lg text-shadow-black/30'>The Cat Map </h1>
+          <p className='text-white text-lg text-shadow-lg text-shadow-black/30 mb-2'>
+          The campus cat atlas — track, explore, and adore
+          </p>
+          {/* <div className="mt-2 rounded-2xl bg-black/50 p-4">
+          
+          </div> */}
+      </div>
+      </OverlayTitle>
     <div className="p-8 pt-24 min-h-screen bg-gradient-to-b from-amber-50 to-white flex flex-col items-center">
-      <h1 className="text-3xl font-extrabold mb-6 text-amber-700 drop-shadow">
-        BilCats Map
-      </h1>
+
       <MapContainer
         center={BILKENT_CENTER}
         zoom={17}
         style={{ height: '400px', width: '100%', maxWidth: 700, zIndex: 10 }}
         scrollWheelZoom={false}
         className="mb-10 rounded-xl shadow-lg border border-amber-200"
-      >
+        >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="&copy; OpenStreetMap contributors"
-        />
+          />
         {cats.map((cat) => (
           <Marker key={cat.id} position={cat.location}>
             <Popup>
               <div
                 className="flex flex-col items-center p-2 bg-white rounded-lg shadow border border-amber-100"
                 style={{ minWidth: 120 }}
-              >
+                >
                 <img
                   src={cat.img}
                   alt={cat.name}
                   className="w-20 h-20 rounded-full object-cover border-2 border-amber-300 mb-2"
                   style={{ aspectRatio: '1 / 1' }}
-                />
+                  />
                 <strong className="text-amber-700">{cat.name}</strong>
                 <div className="text-xs text-gray-600">
                   {cat.breed}, {cat.age} years
@@ -126,7 +137,7 @@ const CatMap: React.FC = () => {
                       },
                     })
                   }
-                >
+                  >
                   View Profile
                 </button>
               </div>
@@ -136,6 +147,7 @@ const CatMap: React.FC = () => {
       </MapContainer>
       {/* ...rest of your code... */}
     </div>
+        </>
   )
 }
 
